@@ -170,17 +170,26 @@
   </section>
 
   <section id="contact">
-    <h2>Inquire About Services</h2>
-    <form>
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" required>
-      <label for="message">Message:</label>
-      <textarea id="message" rows="5" required></textarea>
-      <button type="submit">Send Inquiry</button>
-    </form>
-  </section>
+  <h2>Inquire About Services</h2>
+  <form action="https://formsubmit.co/Kreatednotion.designs@gmail.com" method="POST">
+    <!-- Hidden Inputs -->
+    <input type="hidden" name="_subject" value="New Service Inquiry from Website">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="box">
+
+    <!-- Visible Form Inputs -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Inquiry</button>
+  </form>
+</section>
 
   <section id="notary">
     <h2>Book Your Notary Service</h2>
