@@ -34,23 +34,51 @@
       z-index: 0;
     }
 
-    /* ===== Header (light, flowy, readable) ===== */
+    /* ===== HEADER (tech hex mesh + angled panel) =====
+       Layer order (top → bottom):
+       1) edge highlight of the angled panel
+       2) dark angled panel (arrow shape)
+       3) subtle light sweep
+       4) hex mesh (SVG data URI)
+       5) dark base gradient
+    */
     header {
       background:
-        radial-gradient(1000px 600px at 20% 30%, rgba(210, 215, 255, 0.35), transparent 70%),
-        radial-gradient(800px 500px at 80% 60%, rgba(190, 200, 255, 0.25), transparent 65%),
-        radial-gradient(600px 400px at 50% 90%, rgba(240, 240, 255, 0.20), transparent 60%),
-        linear-gradient(180deg, #e9ecf9 0%, #d7dbef 100%);
-      border-bottom: 4px solid #bbb;
-      color: #fff; /* default text in header is white */
-      padding: 2rem;
+        /* 1) thin edge highlight on the angled panel */
+        linear-gradient(135deg, transparent 58%, rgba(255,255,255,0.12) 58%, rgba(255,255,255,0.12) 60%, transparent 60%) center/100% 100% no-repeat,
+
+        /* 2) angled dark panel (arrow pointing right) */
+        linear-gradient(135deg, rgba(0,0,0,0.65) 0 56%, transparent 56%) center/100% 100% no-repeat,
+
+        /* 3) soft light sweep */
+        radial-gradient(1200px 600px at 75% 30%, rgba(255,255,255,0.12), transparent 60%),
+
+        /* 4) hex mesh pattern (stroke only, lets base show through) */
+        url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 40 40'>\
+  <defs>\
+    <pattern id='hex' width='8.66' height='15' patternUnits='userSpaceOnUse'>\
+      <polygon points='4.33,0 8.66,2.5 8.66,7.5 4.33,10 0,7.5 0,2.5' fill='none' stroke='%23757980' stroke-width='0.7'/>\
+    </pattern>\
+  </defs>\
+  <rect width='100%' height='100%' fill='url(%23hex)'/>\
+</svg>") center/auto cover no-repeat,
+
+        /* 5) base gradient behind mesh */
+        linear-gradient(180deg, #2a2c31 0%, #1f2227 100%);
+
+      border-bottom: 4px solid #999;
+      color: #fff; /* default header text white */
+      padding: 2.5rem 1rem;
       text-align: center;
       position: relative;
       z-index: 1; /* above body glow */
     }
+
     header img {
       max-width: 180px;
       margin-bottom: 0.5rem;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
     }
     header h1 { display: none; }
 
@@ -61,7 +89,8 @@
       margin: 0.25rem 0 1rem;
       font-size: 3rem;
       color: #fff; /* white title */
-      text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+      letter-spacing: 0.5px;
     }
 
     /* ===== Nav (white tabs, readable on any background) ===== */
@@ -92,7 +121,7 @@
     /* ===== Content sections (off-white, soft, readable) ===== */
     section {
       color: #111;
-      background-color: rgba(255, 255, 255, 0.92); /* slightly translucent off-white */
+      background-color: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(0, 0, 0, 0.06);
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
       padding: 2rem;
@@ -100,9 +129,9 @@
       margin: 2rem auto 0;
       border-radius: 12px;
       font-family: 'Playfair Display', serif;
-      backdrop-filter: blur(2px); /* gentle softening */
+      backdrop-filter: blur(2px);
       position: relative;
-      z-index: 1; /* above body glow */
+      z-index: 1;
     }
     section h2 {
       position: relative;
