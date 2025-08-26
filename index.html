@@ -6,6 +6,9 @@
   <title>Kreated Notion Designs</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <!-- Calendly CSS -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -23,8 +26,20 @@
         radial-gradient(620px 360px at 30% 82%, rgba(190, 200, 255, 0.10), transparent 65%),
         linear-gradient(180deg, #0b0c12 0%, #0e0f16 55%, #1a1c2a 100%);
     }
+
+    /* Soft vignette for depth */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      box-shadow: inset 0 0 220px 90px rgba(0, 0, 0, 0.65);
+    }
+
     header {
-      background-image: radial-gradient(circle at top left, #444 10%, transparent 11%), radial-gradient(circle at bottom right, #666 10%, transparent 11%);
+      background-image: radial-gradient(circle at top left, #444 10%, transparent 11%), 
+                        radial-gradient(circle at bottom right, #666 10%, transparent 11%);
       background-size: 20px 20px;
       background-repeat: repeat;
       border-bottom: 4px solid #999;
@@ -177,36 +192,25 @@
 
   <section id="contact">
      <h2>Inquire About Services</h2>
-    <form>
+    <form action="https://formsubmit.co/Kreatednotion.designs@gmail.com" method="POST">
+      <!-- Hidden Inputs -->
+      <input type="hidden" name="_subject" value="New Service Inquiry from Website">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="box">
+
+      <!-- Visible Form Inputs -->
       <label for="name">Name:</label>
-      <input type="text" id="name" required>
+      <input type="text" id="name" name="name" required>
+
       <label for="email">Email:</label>
-      <input type="email" id="email" required>
+      <input type="email" id="email" name="email" required>
+
       <label for="message">Message:</label>
-      <textarea id="message" rows="5" required></textarea>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
       <button type="submit">Send Inquiry</button>
     </form>
   </section>
-  <h2>Inquire About Services</h2>
-  <form action="https://formsubmit.co/Kreatednotion.designs@gmail.com" method="POST">
-    <!-- Hidden Inputs -->
-    <input type="hidden" name="_subject" value="New Service Inquiry from Website">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="box">
-
-    <!-- Visible Form Inputs -->
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" rows="5" required></textarea>
-
-    <button type="submit">Send Inquiry</button>
-  </form>
-</section>
 
   <section id="notary">
     <h2>Book Your Notary Service</h2>
@@ -222,7 +226,7 @@
     <div class="calendly-inline-widget" data-url="https://calendly.com/kreatednotion-designs/remote-online-notary-ron" style="min-width:320px;height:700px;"></div>
 
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    </section>
+  </section>
 
   <footer>
     &copy; 2025 Kreated Notion Designs. All rights reserved.
@@ -232,14 +236,11 @@
     const serviceDropdown = document.getElementById('notaryType');
     const amountInput = document.getElementById('notaryAmount');
 
-    serviceDropdown.addEventListener('change', function () {
-      const selected = serviceDropdown.value;
-      if (selected === 'Remote Online Notary (RON)') {
-        amountInput.value = '30';
-      } else {
-        amountInput.value = '15';
-      }
-    });
+    if (serviceDropdown && amountInput) {
+      serviceDropdown.addEventListener('change', function () {
+        amountInput.value = (serviceDropdown.value === 'Remote Online Notary (RON)') ? '30' : '15';
+      });
+    }
   </script>
 </body>
 </html>
