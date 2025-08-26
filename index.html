@@ -38,14 +38,16 @@
     }
 
     header {
-      background-image: radial-gradient(circle at top left, #444 10%, transparent 11%), 
-                        radial-gradient(circle at bottom right, #666 10%, transparent 11%);
-      background-size: 20px 20px;
-      background-repeat: repeat;
-      border-bottom: 4px solid #999;
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      padding: 1.5rem;
+      /* Smooth flowing gradient background (lighter version) */
+      background:
+        radial-gradient(1000px 600px at 20% 30%, rgba(210, 215, 255, 0.45), transparent 70%),
+        radial-gradient(800px 500px at 80% 60%, rgba(190, 200, 255, 0.35), transparent 65%),
+        radial-gradient(600px 400px at 50% 90%, rgba(240, 240, 255, 0.30), transparent 60%),
+        linear-gradient(180deg, #f5f6fb 0%, #dfe3f0 100%);
+
+      border-bottom: 4px solid #bbb;
+      color: #222;   /* darker text since background is lighter */
+      padding: 2rem;
       text-align: center;
     }
     header img {
@@ -60,6 +62,7 @@
       font-style: italic;
       margin: 0.25rem 0 1rem;
       font-size: 3rem;
+      color: #111;   /* make text stand out */
     }
     nav {
       position: sticky;
