@@ -5,13 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kreated Notion Designs</title>
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
   <!-- Calendly CSS -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
+  <!-- Meta / SEO -->
+  <meta name="description" content="Kreated Notion Designs — modern logos, print & digital graphics, plus Kansas in-person and nationwide online notary (RON). Book instantly.">
+  <link rel="icon" href="KND.png">
+  <meta property="og:title" content="Kreated Notion Designs">
+  <meta property="og:description" content="Modern design studio + fast, secure notary. In-person (KS), IPEN, RON.">
+  <meta property="og:image" content="KND.png">
+  <meta name="theme-color" content="#151826">
+
   <style>
     /* ===== Base page background (clean, not cloudy) ===== */
+    :root{
+      --ink:#1b2030;
+      --brand:#5c6bff;
+      --brand-2:#9aa6ff;
+      --panel:#ffffff;
+      --text:#111;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -34,35 +53,27 @@
       z-index: 0;
     }
 
-    /* ===== HEADER (tech hex mesh + angled panel) =====
-       Layer order (top → bottom):
-       1) edge highlight of the angled panel
-       2) dark angled panel (arrow shape)
-       3) subtle light sweep
-       4) hex mesh (SVG data URI)
-       5) dark base gradient
-    */
+    /* ===== HEADER (tech hex mesh + angled panel) ===== */
     header {
-  /* DARK STEEL: deeper base, stronger angled panel, tighter highlight */
-  background:
-    /* edge highlight of the angled panel */
-    linear-gradient(135deg,
-      transparent 56%,
-      rgba(255,255,255,0.10) 56%,
-      rgba(255,255,255,0.10) 57.2%,
-      transparent 57.2%) center/100% 100% no-repeat,
+      background:
+        /* edge highlight of the angled panel */
+        linear-gradient(135deg,
+          transparent 56%,
+          rgba(255,255,255,0.10) 56%,
+          rgba(255,255,255,0.10) 57.2%,
+          transparent 57.2%) center/100% 100% no-repeat,
 
-    /* angled dark panel (right-pointing arrow) */
-    linear-gradient(135deg,
-      rgba(0,0,0,0.78) 0 55%,
-      transparent 55%) center/100% 100% no-repeat,
+        /* angled dark panel (right-pointing arrow) */
+        linear-gradient(135deg,
+          rgba(0,0,0,0.78) 0 55%,
+          transparent 55%) center/100% 100% no-repeat,
 
-    /* subtle light sweep for metal sheen */
-    radial-gradient(1100px 520px at 72% 28%,
-      rgba(255,255,255,0.10), transparent 60%),
+        /* subtle light sweep for metal sheen */
+        radial-gradient(1100px 520px at 72% 28%,
+          rgba(255,255,255,0.10), transparent 60%),
 
-    /* hex mesh (lighter stroke for contrast on dark steel) */
-    url("data:image/svg+xml;utf8,\
+        /* hex mesh */
+        url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 40 40'>\
   <defs>\
     <pattern id='hex' width='8.66' height='15' patternUnits='userSpaceOnUse'>\
@@ -72,48 +83,46 @@
   <rect width='100%' height='100%' fill='url(%23hex)'/>\
 </svg>") center/auto cover no-repeat,
 
-    /* darker steel base gradient */
-    linear-gradient(180deg, #23262b 0%, #1a1d22 50%, #14161a 100%);
+        /* darker steel base gradient */
+        linear-gradient(180deg, #23262b 0%, #1a1d22 50%, #14161a 100%);
 
-  border-bottom: 4px solid #7b8087;
-  color: #fff;
-  padding: 2.75rem 1rem;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-    header img {
-      max-width: 180px;
-      margin-bottom: 0.5rem;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+      border-bottom: 4px solid #7b8087;
+      color: #fff;
+      padding: 2.75rem 1rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
     }
+    header img { max-width: 180px; margin-bottom: 0.5rem; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35)); }
     header h1 { display: none; }
-
-    /* Title text in header */
     header p {
       font-family: 'Playfair Display', serif;
       font-style: italic;
       margin: 0.25rem 0 1rem;
-      font-size: 3rem;
+      font-size: clamp(2.1rem, 4.6vw, 3rem);
       color: #fff; /* white title */
       text-shadow: 0 2px 6px rgba(0,0,0,0.35);
       letter-spacing: 0.5px;
     }
 
-    /* ===== Nav (white tabs, readable on any background) ===== */
+    /* ===== NAV ===== */
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      background: rgba(20, 22, 35, 0.85); /* darker for contrast */
+      background: rgba(20, 22, 35, 0.85);
       backdrop-filter: saturate(120%) blur(4px);
       display: flex;
+      align-items: center;
       justify-content: center;
+      gap:.5rem;
+      padding:.35rem .5rem;
     }
-    nav a {
-      color: #fff !important; /* keep tabs white */
+    .nav-toggle { display:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35); border-radius:8px; padding:.35rem .6rem; }
+    .nav-links { display:flex; justify-content:center; gap:.25rem; }
+    .nav-links a {
+      color: #fff !important;
       text-decoration: none;
       padding: 1rem;
       display: inline-block;
@@ -122,13 +131,40 @@
       text-shadow: 0 1px 2px rgba(0,0,0,0.35);
       font-weight: 600;
     }
-    nav a:hover {
-      background-color: rgba(255, 255, 255, 0.08);
+    .nav-links a:hover { background-color: rgba(255, 255, 255, 0.08); }
+    @media (max-width: 720px){
+      .nav-toggle { display:inline-block; }
+      .nav-links { display:none; flex-direction:column; text-align:center; padding-bottom:.5rem; }
+      .nav-links.is-open { display:flex; }
+      nav { justify-content: flex-start; }
     }
 
-    /* ===== Content sections (off-white, soft, readable) ===== */
+    /* ===== HERO ===== */
+    .hero { position: relative; isolation: isolate; padding: 6rem 1.25rem 4rem; overflow: hidden; }
+    .hero::before, .hero::after {
+      content: ""; position: absolute; inset: -20%; pointer-events:none; z-index:-1;
+    }
+    .hero::before { background: radial-gradient(600px 400px at 20% 30%, rgba(120,160,255,.12), transparent 60%); animation: float 16s linear infinite; }
+    .hero::after { background: radial-gradient(700px 500px at 80% 60%, rgba(180,200,255,.10), transparent 60%); animation: float 22s linear infinite; }
+    @keyframes float { to { transform: translate3d(2%, -2%, 0); } }
+    .hero__inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .hero__title {
+      font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.25rem);
+      color: #fff; letter-spacing: .5px; margin: 0 0 .75rem; text-shadow: 0 2px 10px rgba(0,0,0,.35);
+    }
+    .hero__subtitle { color: #e8ecff; opacity: .95; font-size: clamp(1rem, 2.6vw, 1.25rem); margin: 0 auto 1.25rem; max-width: 720px; }
+    .hero__cta { display: flex; gap: .75rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+    .btn { display:inline-block; padding:.85rem 1.15rem; border-radius: 10px; font-weight:700; text-decoration:none; border:1px solid transparent; box-shadow:0 10px 24px rgba(0,0,0,.16); transition: filter .2s ease, transform .1s ease; }
+    .btn--primary { background:var(--brand); color:#fff; }
+    .btn--primary:hover { filter: brightness(1.08); }
+    .btn--ghost { background:transparent; color:#fff; border-color: rgba(255,255,255,.35); }
+    .btn--ghost:hover { background: rgba(255,255,255,.07); }
+    .hero__badges { list-style:none; padding:0; margin:1rem 0 0; color:#cdd5ff; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .hero__badges li { background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); padding:.5rem .75rem; border-radius:999px; font-size:.95rem; }
+
+    /* ===== Content sections ===== */
     section {
-      color: #111;
+      color: var(--text);
       background-color: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(0, 0, 0, 0.06);
       box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
@@ -142,68 +178,54 @@
       z-index: 1;
     }
     section h2 {
-      position: relative;
-      padding-left: 1.2rem;
-      color: #000;
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 1px solid #555;
-      padding-bottom: 0.5rem;
+      position: relative; color: #000; font-family: 'Playfair Display', serif; font-size: 2rem; margin: 0 0 1rem; padding-bottom:.35rem;
     }
+    /* gradient underline */
     section h2::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.6rem;
-      width: 8px;
-      height: 80%;
-      background: linear-gradient(180deg, #999, #333);
+      content: ""; position: absolute; left: 0; bottom: -6px; width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--brand), var(--brand-2) 60%, transparent 100%);
       border-radius: 4px;
     }
 
-    ul {
-      color: #222;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    form label, form textarea, form input, form button, form select {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem;
-    }
-    form input, form textarea, form select {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.25rem;
-      border: none;
-      border-radius: 4px;
-    }
-    form button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: #444;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    form button:hover { background-color: #666; }
+    /* Services cards */
+    .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap:1rem; }
+    .card { background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:1.25rem; box-shadow:0 10px 26px rgba(0,0,0,.12); transition: transform .25s ease, box-shadow .25s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow:0 18px 34px rgba(0,0,0,.18); }
+    .card__icon { font-size:1.75rem; margin-bottom:.5rem; }
+    .card h3 { margin:.25rem 0 .5rem; font-size:1.15rem; }
+    .card p { margin:0; line-height:1.55; font-family: 'Roboto', sans-serif; }
 
-    .notary-pricing h3 { margin-bottom: 0.5rem; }
-    .notary-pricing button { margin-top: 1rem; }
+    /* Forms */
+    form label, form textarea, form input, form button, form select { font-family: 'Playfair Display', serif; font-size: 1rem; }
+    form input, form textarea, form select { width: 100%; padding: 0.5rem; margin-top: 0.25rem; border: 1px solid rgba(0,0,0,.12); border-radius: 8px; background:#fff; }
+    form textarea{ resize: vertical; }
+    form .row{ display:grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    @media (max-width:720px){ form .row{ grid-template-columns: 1fr; } }
+    form button { margin-top: 1rem; padding:.8rem 1rem; background:var(--brand); color:#fff; border: none; cursor: pointer; border-radius: 10px; font-weight:700; box-shadow:0 10px 24px rgba(0,0,0,.16); }
+    form button:hover { filter:brightness(1.08); }
 
-    footer {
-      background-image: linear-gradient(to right, #333, #111);
-      border-top: 4px solid #999;
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-      font-family: 'Playfair Display', serif;
-      margin-top: 2rem;
-      position: relative;
-      z-index: 1;
-    }
+    /* Notary pills + widget */
+    .pills { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1rem; }
+    .pill { border:1px solid #d7dcff; background:rgba(255,255,255,.92); color:#1b2030; border-radius:999px; padding:.5rem .85rem; cursor:pointer; font-weight:700; }
+    .pill.is-active { background:var(--brand); color:#fff; border-color:var(--brand); }
+    .cal-wrap { border:1px solid rgba(0,0,0,.08); border-radius:12px; overflow:hidden; background:#fff; }
+
+    /* Testimonials */
+    #testimonials .quotes { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:1rem; }
+    #testimonials figure { margin:0; padding:1.25rem; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:14px; box-shadow:0 10px 26px rgba(0,0,0,.12); }
+    #testimonials blockquote { margin:0 0 .5rem; font-size:1.05rem; line-height:1.55; font-family: 'Roboto', sans-serif; }
+    #testimonials figcaption { color:#666; font-size:.95rem; font-family: 'Roboto', sans-serif; }
+
+    /* Footer */
+    footer { background-image: linear-gradient(to right, #333, #111); border-top: 4px solid #999; background-color: rgba(0, 0, 0, 0.85); color: #fff; text-align: center; padding: 1rem; font-family: 'Playfair Display', serif; margin-top: 2rem; position: relative; z-index: 1; }
+
+    /* Reveal animation */
+    .reveal { opacity:0; transform: translateY(12px); transition: opacity .4s ease, transform .4s ease; }
+    .reveal.is-visible { opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; } .btn, .card { transition:none; } }
+
+    /* Back to top */
+    #toTop{ position:fixed; right:1rem; bottom:1rem; opacity:0; transition:.25s; background:var(--brand); color:#fff; border:none; border-radius:999px; width:44px; height:44px; box-shadow:0 10px 24px rgba(0,0,0,.22); cursor:pointer; }
   </style>
 </head>
 <body>
@@ -213,89 +235,198 @@
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#notary">Notary</a>
-    <a href="#contact">Inquire</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+    <div id="nav-links" class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#notary">Notary</a>
+      <a href="#contact">Inquire</a>
+    </div>
   </nav>
 
-  <section id="about">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <h1 class="hero__title">Branding • Print • Notary</h1>
+      <p class="hero__subtitle">Clean, modern graphics + fast, secure notary (KS in‑person • nationwide RON).</p>
+      <div class="hero__cta">
+        <a href="#notary" class="btn btn--primary">Book Notary</a>
+        <a href="#contact" class="btn btn--ghost">Get a Quote</a>
+      </div>
+      <ul class="hero__badges" aria-label="Highlights">
+        <li>✓ In‑person • IPEN • RON</li>
+        <li>✓ 24–48h design turnarounds</li>
+        <li>✓ Small‑business friendly pricing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
     <h2>About Us</h2>
     <p>Kreated Notion Designs provides creative graphic design services including logos, printing, and custom designs. We also offer notary services both in-person and online.</p>
   </section>
 
-  <section id="services">
+  <!-- Services as cards -->
+  <section id="services" class="reveal">
     <h2>Our Services</h2>
-    <ul>
-      <li>Custom Logo Design</li>
-      <li>Flyers & Business Cards</li>
-      <li>Website Graphics</li>
-      <li>Print & Digital Designs</li>
-      <li>In-Person Notary: Traditional notary service where you meet face-to-face with the notary to sign and notarize your documents.</li>
-      <li>IPEN (In-Person Electronic Notarization): A modern alternative where you meet the notary in person, but sign the documents electronically using a secure digital platform.</li>
-      <li>RON (Remote Online Notarization): Fully remote notary service that allows you to complete the entire notarization process online via secure audio-video technology. Perfect for clients who are out of state, traveling, or need quick and contactless service.</li>
-    </ul>
+    <div class="cards">
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">🎨</div>
+        <h3>Logo & Branding</h3>
+        <p>Custom marks, style guides, and brand kits that scale from social to signage.</p>
+      </article>
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">🖨️</div>
+        <h3>Print & Collateral</h3>
+        <p>Flyers, business cards, car magnets, menus—press-ready and pixel-perfect.</p>
+      </article>
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">🌐</div>
+        <h3>Digital Graphics</h3>
+        <p>Web banners, social templates, story highlights, and ad creatives.</p>
+      </article>
+      <article class="card">
+        <div class="card__icon" aria-hidden="true">🖊️</div>
+        <h3>Notary (KS • Nationwide RON)</h3>
+        <p>In‑person, IPEN, and Remote Online Notary—simple, secure, and fast.</p>
+      </article>
+    </div>
   </section>
 
-  <section id="contact">
+  <!-- Contact / Inquiry -->
+  <section id="contact" class="reveal">
     <h2>Inquire About Services</h2>
     <form action="https://formsubmit.co/Kreatednotion.designs@gmail.com" method="POST">
       <!-- Hidden Inputs -->
       <input type="hidden" name="_subject" value="New Service Inquiry from Website">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="box">
+      <input type="hidden" name="_next" value="https://krestednotion.com/thank-you.html">
+      <input type="text" name="_honey" style="display:none" aria-hidden="true">
 
-      <!-- Visible Form Inputs -->
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <div class="row">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
 
       <label for="message">Message:</label>
       <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Send Inquiry</button>
+      <button type="submit" class="btn btn--primary">Send Inquiry</button>
     </form>
   </section>
 
-  <section id="notary">
+  <!-- Notary with single Calendly widget and pills -->
+  <section id="notary" class="reveal">
     <h2>Book Your Notary Service</h2>
-    <p>Select and schedule your service below:</p>
+    <p>Select a service below and the scheduler will update automatically.</p>
 
-    <h3>In-Person Notary ($15)</h3>
-    <div class="calendly-inline-widget"
-         data-url="https://calendly.com/kreatednotion-designs/notary-service-booking"
-         style="min-width:320px;height:700px;"></div>
+    <div class="pills" role="tablist" aria-label="Notary booking">
+      <button class="pill is-active" data-url="https://calendly.com/kreatednotion-designs/notary-service-booking" role="tab" aria-selected="true">In-Person ($15)</button>
+      <button class="pill" data-url="https://calendly.com/kreatednotion-designs/30min" role="tab" aria-selected="false">IPEN ($20)</button>
+      <button class="pill" data-url="https://calendly.com/kreatednotion-designs/remote-online-notary-ron" role="tab" aria-selected="false">RON ($30)</button>
+    </div>
 
-    <h3>In-Person IPEN ($20)</h3>
-    <div class="calendly-inline-widget"
-         data-url="https://calendly.com/kreatednotion-designs/30min"
-         style="min-width:320px;height:700px;"></div>
+    <div class="cal-wrap">
+      <div id="calendly" class="calendly-inline-widget" data-url="https://calendly.com/kreatednotion-designs/notary-service-booking" style="min-width:320px; height:700px;"></div>
+    </div>
+  </section>
 
-    <h3>Remote Online Notary (RON) ($30)</h3>
-    <div class="calendly-inline-widget"
-         data-url="https://calendly.com/kreatednotion-designs/remote-online-notary-ron"
-         style="min-width:320px;height:700px;"></div>
-
-    <!-- Calendly script (load once, after widgets) -->
-    <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <!-- Testimonials -->
+  <section id="testimonials" class="reveal">
+    <h2>Happy Clients</h2>
+    <div class="quotes">
+      <figure>
+        <blockquote>“Fast, crisp designs—our cards look premium now.”</blockquote>
+        <figcaption>— TRU Motion Co</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Booked RON from out of state. Seamless and secure.”</blockquote>
+        <figcaption>— Angela R.</figcaption>
+      </figure>
+      <figure>
+        <blockquote>“Logo update + car magnets were perfect and on time.”</blockquote>
+        <figcaption>— J. Williams</figcaption>
+      </figure>
+    </div>
   </section>
 
   <footer>
     &copy; 2025 Kreated Notion Designs. All rights reserved.
   </footer>
 
-  <script>
-    // Guarded script to avoid errors if elements are missing
-    const serviceDropdown = document.getElementById('notaryType');
-    const amountInput = document.getElementById('notaryAmount');
+  <!-- Calendly script (load once, after widgets) -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-    if (serviceDropdown && amountInput) {
-      serviceDropdown.addEventListener('change', function () {
-        amountInput.value = (serviceDropdown.value === 'Remote Online Notary (RON)') ? '30' : '15';
+  <!-- Scripts -->
+  <script>
+    // Mobile nav toggle
+    const btn = document.querySelector('.nav-toggle');
+    const links = document.getElementById('nav-links');
+    if(btn && links){
+      btn.addEventListener('click', ()=>{
+        const open = links.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     }
+
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('is-visible'); });
+    }, { threshold:.12 });
+    document.querySelectorAll('section').forEach(s=>{ s.classList.add('reveal'); obs.observe(s); });
+
+    // Back to top button
+    const toTop = document.createElement('button');
+    toTop.id = 'toTop';
+    toTop.setAttribute('aria-label','Back to top');
+    toTop.textContent = '↑';
+    document.body.appendChild(toTop);
+    window.addEventListener('scroll', ()=>{ toTop.style.opacity = window.scrollY>600 ? 1 : 0; });
+    toTop.addEventListener('click', ()=>window.scrollTo({top:0, behavior:'smooth'}));
+
+    // Calendly pills switcher
+    document.querySelectorAll('.pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.pill').forEach(b=>{ b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-selected','true');
+        const url = btn.getAttribute('data-url');
+        const widget = document.getElementById('calendly');
+        if(!widget) return;
+        widget.setAttribute('data-url', url);
+        // Force reload when data-url changes
+        const clone = widget.cloneNode(false);
+        widget.parentNode.replaceChild(clone, widget);
+        if(window.Calendly && Calendly.initInlineWidgets){ Calendly.initInlineWidgets(); }
+      });
+    });
+  </script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Kreated Notion Designs",
+    "image":"https://your-domain.com/KND.png",
+    "description":"Graphic design studio and notary services (KS in-person, nationwide RON).",
+    "areaServed":"US",
+    "url":"https://krestednotion.com",
+    "email":"Kreatednotion.designs@gmail.com",
+    "sameAs":["https://instagram.com/kreatednotion_designs","https://facebook.com/Kreated Notion Designs"],
+    "serviceOffer": [
+      {"@type":"Service","name":"Logo & Branding"},
+      {"@type":"Service","name":"Print Design"},
+      {"@type":"Service","name":"Remote Online Notary (RON)"}
+    ]
+  }
   </script>
 </body>
 </html>
