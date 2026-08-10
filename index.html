@@ -81,6 +81,72 @@
       
       background-attachment:fixed;
     }
+    /* HEADER */
+    header{
+      position:relative;
+      z-index:2;
+      
+      padding:1.25rem 1rem;
+      
+      text-align:center;
+      
+      background:
+      radial-gradient(
+      450px 160px at 50% 0%,
+      rgba(255,255,255,.06),
+      transparent 70%
+      ),
+      linear-gradient(
+      180deg,
+      #090a0d 0%,
+      #050608 100%
+      );
+      
+      border-bottom:
+      1px solid rgba(255,255,255,.10);
+    }
+    
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:.75rem;
+      color:#ffffff;
+    }
+    
+    .brand img{
+      width:52px;
+      height:52px;
+      
+      max-width:52px;
+      max-height:52px;
+      
+      object-fit:contain;
+      
+      display:block;
+      
+      filter:
+      drop-shadow(
+      0 5px 12px rgba(0,0,0,.45)
+      );
+    }
+    
+    .brand__name{
+      font-family:'Playfair Display', serif;
+      font-weight:700;
+      
+      font-size:
+      clamp(
+      1.35rem,
+      4vw,
+      2rem
+      );
+      
+      letter-spacing:.2px;
+      
+      color:#ffffff;
+    }
+    
     nav{
       position:sticky;
       top:0;
