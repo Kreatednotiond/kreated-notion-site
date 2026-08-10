@@ -15,47 +15,229 @@
   <meta property="og:title" content="Kreated Notion Designs">
   <meta property="og:description" content="Brand studio + fast, secure notary. In‑person (KS), IPEN, RON.">
   <meta property="og:image" content="KND.png">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#050608">
 
   <style>
     /* =========================================
        THEME — professional, slick, high-contrast
        ========================================= */
     :root{
-      --bg:#0f172a;           /* slate-900 */
-      --bg-2:#111827;         /* slate-800 */
-      --card:#ffffff;         /* white cards */
-      --ink:#0b1220;          /* deep text for light sections */
-      --ink-strong:#0a0f1c;   /* headings on light */
-      --ink-soft:#1f2937;     /* body text on light */
-      --muted:#334155;        /* slate-700 for contrast */
-      --accent:#06b6d4;       /* cyan-500 */
-      --accent-2:#4f46e5;     /* indigo-600 */
-      --ring: rgba(6,182,212,.45);
-      --shadow: 0 14px 40px rgba(15,23,42,.28);
+      --bg:#050608;
+      --bg-2:#0b0d11;
+      
+      /* Leave content sections white for now */
+      --card:#ffffff;
+      
+      --ink:#0b1220;
+      --ink-strong:#090d14;
+      --ink-soft:#1f2937;
+      --muted:#475569;
+      
+      /* New metallic/silver accent */
+      --accent:#f3f4f6;
+      --accent-2:#9ca3af;
+      
+      --ring:rgba(148,163,184,.35);
+      
+      --shadow:0 18px 45px rgba(0,0,0,.32);
       --white:#ffffff;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{ margin:0; font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans'; color:var(--ink); background:
-      radial-gradient(1200px 700px at 10% -10%, rgba(79,70,229,.14), transparent 60%),
-      radial-gradient(900px 600px at 110% 10%, rgba(6,182,212,.14), transparent 60%),
-      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-      background-attachment: fixed;}
-
-    /* HEADER */
-    header{ position:relative; z-index:2; padding: 2.25rem 1rem 1.25rem; text-align:center; }
-    .brand{ display:flex; align-items:center; gap:.75rem; justify-content:center; color:var(--white); }
-    .brand img{ width:56px; height:56px; object-fit:contain; filter: drop-shadow(0 2px 6px rgba(0,0,0,.35)); }
-    .brand__name{ font-family:'Playfair Display', serif; font-weight:700; font-size:1.6rem; letter-spacing:.2px; }
+    body{
+      margin:0;
+      
+      font-family:
+      'Inter',
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      'Helvetica Neue',
+      Arial,
+      'Noto Sans';
+      
+      color:var(--ink);
+      
+      background:
+      radial-gradient(
+      800px 500px at 85% 8%,
+      rgba(78,98,122,.13),
+      transparent 68%
+      ),
+      
+      radial-gradient(
+      650px 500px at 8% 45%,
+      rgba(255,255,255,.035),
+      transparent 70%
+      ),
+      
+      linear-gradient(
+      180deg,
+      #050608 0%,
+      #0b0d11 48%,
+      #050608 100%
+      );
+      
+      background-attachment:fixed;
+    }
+    nav{
+      position:sticky;
+      top:0;
+      z-index:10;
+      
+      backdrop-filter:
+      blur(14px)
+      saturate(120%);
+      
+      background:
+      rgba(5,6,8,.94);
+      
+      border-bottom:
+      1px solid rgba(255,255,255,.09);
+      box-shadow:
+      0 6px 20px rgba(0,0,0,.20),
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      
+      gap:.5rem;
+      
+      max-width:1100px;
+      
+      margin:0 auto;
+      
+      padding:.55rem;
+    }
+    
+    .nav-toggle{
+      display:none;
+      
+      background:
+      rgba(255,255,255,.04);
+      
+      color:#fff;
+      
+      border:
+      1px solid rgba(255,255,255,.30);
+      
+      border-radius:10px;
+      
+      padding:
+      .45rem
+      .7rem;
+    }
+    
+    .nav-links{
+      display:flex;
+      gap:.25rem,
+    }
+    
+    .nav-links a{
+      color:#f2f3f5;
+      
+      text-decoration:none;
+      
+      padding:
+      .9rem
+      1rem;
+      
+      font-weight:700;
+      
+      border-radius:10px;
+      
+      letter-spacing:.2px;
+      
+      transition:
+      background .2s ease;
+    }
+    
+    .nav-links a:hover{
+      background:
+      rgba(255,255,255,.09);
+    }
 
     /* NAV */
-    nav{ position:sticky; top:0; z-index:10; backdrop-filter: blur(8px) saturate(120%); background:rgba(17,24,39,.92); border-bottom:1px solid rgba(255,255,255,.08); }
-    .nav-inner{ display:flex; align-items:center; justify-content:center; gap:.5rem; max-width:1100px; margin:0 auto; padding:.5rem; }
-    .nav-toggle{ display:none; background:transparent; color:#fff; border:1px solid rgba(255,255,255,.35); border-radius:10px; padding:.45rem .7rem; }
-    .nav-links{ display:flex; gap:.25rem; }
-    .nav-links a{ color:#fff; text-decoration:none; padding:.9rem 1rem; font-weight:700; border-radius:10px; letter-spacing:.2px; }
-    .nav-links a:hover{ background:rgba(255,255,255,.10); }
+    nav{
+      position:sticky;
+      top:0;
+      z-index:10;
+      
+      backdrop-filter:
+      blur(14px)
+      saturate(120%);
+      
+      background:
+      rgba(5,6,8,.94);
+      
+      border-bottom:
+      1px solid rgba(255,255,255,.09);
+      
+      box-shadow:
+      0 6px 20px rgba(0,0,0,.20);
+      }
+      
+      .nav-inner{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        
+        gap:.5rem;
+        
+        max-width:1100px;
+        
+        margin:0 auto;
+        
+        padding:.55rem;
+      }
+      
+      .nav-toggle{
+        display:none;
+        
+        background:
+        rgba(255,255,255,.04);
+        
+        color:#fff;
+        
+        border:
+        1px solid rgba(255,255,255,.30);
+        
+        border-radius:10px;
+        
+        padding:
+        .45rem
+        .7rem;
+      }
+      
+      .nav-links{
+        display:flex;
+        gap:.25rem;
+      }
+      
+      .nav-links a{
+        color:#f2f3f5;
+        text-decoration:none;
+        
+        padding:
+        .9rem
+        1rem;
+        
+        font-weight:700;
+        
+        border-radius:10px;
+        
+        letter-spacing:.2px;
+        
+        transition:
+        background .2s ease;
+      }
+      
+      .nav-links a:hover{
+        background:
+        rgba(255,255,255,.09);
+      }
     @media (max-width: 760px){
       .nav-toggle{ display:inline-block; }
       .nav-inner{ justify-content:space-between; }
